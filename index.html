@@ -825,55 +825,64 @@
     <!-- scroll video -->
     <script>
        function setupVideoScroll(options = {}) {
-    const {
-        videoId = "myVideo",
-        containerId = "videoContainer",
-        speed = 500,
-        triggerHook = 0,
-        duration = "800%",
-        controller = new ScrollMagic.Controller()
-    } = options;
+        const {
+            videoId = "myVideo",
+            containerId = "videoContainer",
+            speed = 500,
+            triggerHook = 0,
+            duration = "800%",
+            controller = new ScrollMagic.Controller()
+        } = options;
 
-    // Obtener elementos
-    const video = document.getElementById(videoId);
-    const container = document.getElementById(containerId);
+        // Obtener elementos
+        const video = document.getElementById(videoId);
+        const container = document.getElementById(containerId);
 
-    // Configurar el contenedor según la duración del video
-    video.addEventListener('loadedmetadata', () => {
-        container.style.height = (video.duration * speed) + 'px';
+        // Configurar el contenedor según la duración del video
+        video.addEventListener('loadedmetadata', () => {
+            container.style.height = (video.duration * speed) + 'px';
+        });
+
+        // Reproducir el video en base al scroll
+        const playVideo = () => {
+            const scrollY = window.scrollY;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+
+            if (video.duration > 0) { // Asegúrate de que la duración sea válida
+                const percentage = scrollY / height;
+                const currentTime = video.duration * percentage;
+
+                if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
+                    video.currentTime = currentTime;
+                }
+            }
+
+            window.requestAnimationFrame(playVideo);
+        };
+
+        // Configurar ScrollMagic Scene
+        new ScrollMagic.Scene({
+            triggerElement: `#${containerId}`,
+            triggerHook: triggerHook,
+            duration: duration,
+        })
+            .setPin(`#${containerId}`)
+            .addIndicators({ name: "video scroll" })
+            .addTo(controller);
+
+        // Adjuntar evento de scroll para sincronizar el video
+        window.addEventListener("scroll", playVideo);
+    }
+
+    // Uso de la función
+    setupVideoScroll({
+        videoId: "myVideo",
+        containerId: "videoContainer",
+        speed: 500,
+        triggerHook: 0,
+        duration: "800%"
     });
 
-    // Reproducir el video en base al scroll
-    const playVideo = () => {
-        const scrollY = window.scrollY;
-        const height = document.documentElement.scrollHeight - window.innerHeight;
-        const percentage = scrollY / height;
-        video.currentTime = video.duration * percentage;
-        window.requestAnimationFrame(playVideo);
-    };
-
-    // Configurar ScrollMagic Scene
-    new ScrollMagic.Scene({
-        triggerElement: `#${containerId}`,
-        triggerHook: triggerHook,
-        duration: duration,
-    })
-        .setPin(`#${containerId}`)
-        .addIndicators({ name: "video scroll" })
-        .addTo(controller);
-
-    // Adjuntar evento de scroll para sincronizar el video
-    window.addEventListener("scroll", playVideo);
-}
-
-// Uso de la función
-setupVideoScroll({
-    videoId: "myVideo",
-    containerId: "videoContainer",
-    speed: 500,
-    triggerHook: 0,
-    duration: "800%"
-});
     </script>
 
 </body>
