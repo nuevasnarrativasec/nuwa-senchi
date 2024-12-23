@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v7">
+    <link rel="stylesheet" href="./css/style.css?v10">
 </head>
 <body>
 
@@ -557,9 +557,7 @@
                 $(".mariposa-2").addClass("salirLeft"); 
                 $(".mariposa-2").removeClass("enterLeft"); 
             })
-            .addTo(controller);  
-                
-            
+            .addTo(controller);   
 
 
             // zoom al mapa ubicador
@@ -593,14 +591,14 @@
             .addTo(controller);  
 
             // Video scroll
-            new ScrollMagic.Scene({
+            /*new ScrollMagic.Scene({
             triggerElement: "#videoContainer",
                 triggerHook: 0,
                 duration: "800%",
             })
             .setPin("#videoContainer")
             .addIndicators("video scroll")
-            .addTo(controller);
+            .addTo(controller);*/
 
         });
     </script>
@@ -826,31 +824,56 @@
 
     <!-- scroll video -->
     <script>
-        // get video element
-        const video = document.getElementById("myVideo");
-        const container = document.getElementById("videoContainer");
+       function setupVideoScroll(options = {}) {
+    const {
+        videoId = "myVideo",
+        containerId = "videoContainer",
+        speed = 500,
+        triggerHook = 0,
+        duration = "800%",
+        controller = new ScrollMagic.Controller()
+    } = options;
 
-        // set the container height according to video length
-        video.addEventListener('loadedmetadata', function() {
-            const speed = 500; // can be any number (adjust to your preference)
-            container.style.height = (video.duration * speed) + 'px';
-        });
+    // Obtener elementos
+    const video = document.getElementById(videoId);
+    const container = document.getElementById(containerId);
 
-        // play video using scroll values
-        // function is attached to scroll event.
+    // Configurar el contenedor según la duración del video
+    video.addEventListener('loadedmetadata', () => {
+        container.style.height = (video.duration * speed) + 'px';
+    });
 
-        const playVideo = () => {
-        // get current scroll progress
-        var scrollY = window.scrollY;
-        // get total page height and calculate percentage
-        var height = document.documentElement.scrollHeight - window.innerHeight;
-        var percentage = (scrollY / height);
-        // set video playback position.
+    // Reproducir el video en base al scroll
+    const playVideo = () => {
+        const scrollY = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const percentage = scrollY / height;
         video.currentTime = video.duration * percentage;
         window.requestAnimationFrame(playVideo);
-        };
+    };
 
-        window.addEventListener("scroll", playVideo);
+    // Configurar ScrollMagic Scene
+    new ScrollMagic.Scene({
+        triggerElement: `#${containerId}`,
+        triggerHook: triggerHook,
+        duration: duration,
+    })
+        .setPin(`#${containerId}`)
+        .addIndicators({ name: "video scroll" })
+        .addTo(controller);
+
+    // Adjuntar evento de scroll para sincronizar el video
+    window.addEventListener("scroll", playVideo);
+}
+
+// Uso de la función
+setupVideoScroll({
+    videoId: "myVideo",
+    containerId: "videoContainer",
+    speed: 500,
+    triggerHook: 0,
+    duration: "800%"
+});
     </script>
 
 </body>
