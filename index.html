@@ -838,25 +838,30 @@
         const video = document.getElementById(videoId);
         const container = document.getElementById(containerId);
 
-        // Configurar el contenedor según la duración del video
+        // Configurar el contenedor según la duración del video cuando esté listo
         video.addEventListener('loadedmetadata', () => {
-            container.style.height = (video.duration * speed) + 'px';
+            // Solo si la duración es válida
+            if (video.duration > 0) {
+                container.style.height = (video.duration * speed) + 'px';
+            }
         });
 
-        // Reproducir el video en base al scroll
+        // Reproducir el video en base al scroll, solo si la duración está lista
         const playVideo = () => {
-            const scrollY = window.scrollY;
-            const height = document.documentElement.scrollHeight - window.innerHeight;
+            if (video.duration > 0) {  // Verificar si la duración del video es válida
+                const scrollY = window.scrollY;
+                const height = document.documentElement.scrollHeight - window.innerHeight;
 
-            if (video.duration > 0) { // Asegúrate de que la duración sea válida
                 const percentage = scrollY / height;
                 const currentTime = video.duration * percentage;
 
+                // Validar que currentTime es un número finito y dentro del rango
                 if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
                     video.currentTime = currentTime;
                 }
             }
 
+            // Continuar con el siguiente frame
             window.requestAnimationFrame(playVideo);
         };
 
@@ -882,6 +887,7 @@
         triggerHook: 0,
         duration: "800%"
     });
+
 
     </script>
 
