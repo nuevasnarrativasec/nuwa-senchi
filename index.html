@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v10">
+    <link rel="stylesheet" href="./css/style.css?v11">
 </head>
 <body>
 
@@ -830,7 +830,7 @@
         containerId = "videoContainer",
         speed = 500,
         triggerHook = 0,
-        duration = "900%",
+        duration = "800%",
         controller = new ScrollMagic.Controller()
     } = options;
 
@@ -868,13 +868,20 @@
     };
 
     // Configurar ScrollMagic Scene
-    new ScrollMagic.Scene({
+    const scene = new ScrollMagic.Scene({
         triggerElement: `#${containerId}`,
         triggerHook: triggerHook,
         duration: duration,
     })
         .setPin(`#${containerId}`)
         .addIndicators({ name: "video scroll" })
+        .on("end", () => {
+            // Cuando la escena termine, agregar clase para ajustar la altura
+            const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
+            if (pinSpacer) {
+                pinSpacer.classList.add('adjust-height'); // Clase personalizada
+            }
+        })
         .addTo(controller);
 
     // Adjuntar evento de scroll para sincronizar el video
@@ -887,8 +894,9 @@ setupVideoScroll({
     containerId: "videoContainer",
     speed: 500,
     triggerHook: 0,
-    duration: "900%"
+    duration: "800%"
 });
+
 
 
 
