@@ -849,6 +849,7 @@ html {
 }
 .scrollmagic-pin-spacer.adjust-height {
     height: 100vh !important;  
+    min-height: 100vh !important;
 }
 
 @media only screen and (max-width: 640px){
