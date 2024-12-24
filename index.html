@@ -825,68 +825,71 @@
     <!-- scroll video -->
     <script>
        function setupVideoScroll(options = {}) {
-        const {
-            videoId = "myVideo",
-            containerId = "videoContainer",
-            speed = 500,
-            triggerHook = 0,
-            duration = "800%",
-            controller = new ScrollMagic.Controller()
-        } = options;
+    const {
+        videoId = "myVideo",
+        containerId = "videoContainer",
+        speed = 500,
+        triggerHook = 0,
+        duration = "900%",
+        controller = new ScrollMagic.Controller()
+    } = options;
 
-        // Obtener elementos
-        const video = document.getElementById(videoId);
-        const container = document.getElementById(containerId);
+    // Obtener elementos
+    const video = document.getElementById(videoId);
+    const container = document.getElementById(containerId);
 
-        // Configurar el contenedor según la duración del video cuando esté listo
-        video.addEventListener('loadedmetadata', () => {
-            // Solo si la duración es válida
-            if (video.duration > 0) {
-                container.style.height = (video.duration * speed) + 'px';
+    // Asegurarse de que el video está completamente cargado
+    const ensureVideoLoaded = () => {
+        if (video.readyState === 4) { // readyState 4 significa que el video está completamente cargado
+            container.style.height = (video.duration * speed) + 'px';
+            return true;
+        }
+        setTimeout(ensureVideoLoaded, 100); // Intentar nuevamente en 100ms
+    };
+
+    video.addEventListener('loadedmetadata', ensureVideoLoaded);
+
+    // Reproducir el video en base al scroll, solo si la duración está lista
+    const playVideo = () => {
+        if (video.duration > 0) {  // Verificar si la duración del video es válida
+            const scrollY = window.scrollY;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+
+            const percentage = scrollY / height;
+            const currentTime = video.duration * percentage;
+
+            // Validar que currentTime es un número finito y dentro del rango
+            if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
+                video.currentTime = currentTime;
             }
-        });
+        }
 
-        // Reproducir el video en base al scroll, solo si la duración está lista
-        const playVideo = () => {
-            if (video.duration > 0) {  // Verificar si la duración del video es válida
-                const scrollY = window.scrollY;
-                const height = document.documentElement.scrollHeight - window.innerHeight;
+        window.requestAnimationFrame(playVideo);
+    };
 
-                const percentage = scrollY / height;
-                const currentTime = video.duration * percentage;
+    // Configurar ScrollMagic Scene
+    new ScrollMagic.Scene({
+        triggerElement: `#${containerId}`,
+        triggerHook: triggerHook,
+        duration: duration,
+    })
+        .setPin(`#${containerId}`)
+        .addIndicators({ name: "video scroll" })
+        .addTo(controller);
 
-                // Validar que currentTime es un número finito y dentro del rango
-                if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
-                    video.currentTime = currentTime;
-                }
-            }
+    // Adjuntar evento de scroll para sincronizar el video
+    window.addEventListener("scroll", playVideo);
+}
 
-            // Continuar con el siguiente frame
-            window.requestAnimationFrame(playVideo);
-        };
+// Uso de la función
+setupVideoScroll({
+    videoId: "myVideo",
+    containerId: "videoContainer",
+    speed: 500,
+    triggerHook: 0,
+    duration: "900%"
+});
 
-        // Configurar ScrollMagic Scene
-        new ScrollMagic.Scene({
-            triggerElement: `#${containerId}`,
-            triggerHook: triggerHook,
-            duration: duration,
-        })
-            .setPin(`#${containerId}`)
-            .addIndicators({ name: "video scroll" })
-            .addTo(controller);
-
-        // Adjuntar evento de scroll para sincronizar el video
-        window.addEventListener("scroll", playVideo);
-    }
-
-    // Uso de la función
-    setupVideoScroll({
-        videoId: "myVideo",
-        containerId: "videoContainer",
-        speed: 500,
-        triggerHook: 0,
-        duration: "800%"
-    });
 
 
     </script>
