@@ -546,10 +546,11 @@ html {
                 cursor: pointer;
                 display: block;  
                 margin-bottom: 20px;
+                position: relative;
             }
                 .box-main-trivia .question label p{
                     border: 1px solid #EA9015;
-                    border-radius: 20px;
+                    border-radius: 10px;
                     margin: 0 auto;
                     padding: 10px;
                     text-align: left;
@@ -619,8 +620,10 @@ html {
                 vertical-align: top;
             }
                 button.previo img{
+                    display: inline-block;
                     margin: 11px auto;
-                    max-width: 45px;           
+                    max-width: 45px;                    
+                    position: relative;
                 }
         .box-main-result{    
             min-height: 69vh;
@@ -677,8 +680,18 @@ html {
 .question img{
     display: block;
     margin: 0 auto;
-    max-width: 65px;
+    max-width: 35px;
+    position: absolute;
+    right: 0;
+    top: 20%;
 }   
+    .box-preguntas .check-1{
+        right: -50px;
+    }
+    .box-preguntas .x-2,
+    .box-preguntas .x-3{
+        right: -50px;
+    }
 
 #quizForm .message-box p{
     color: #dba55a;

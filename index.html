@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v13">
+    <link rel="stylesheet" href="./css/style.css?v17">
 </head>
 <body>
 
@@ -156,16 +156,7 @@
         </p>
         <p>
             Sin embargo, existe un subregistro significativo, ya que muchas mujeres y menores no denuncian debido a barreras lingüísticas, acuerdos informales en las comunidades y la falta de acceso a servicios legales y médicos. Solo el distrito de Nieva cuenta con una comisaría para denuncias, dejando a distritos como El Cenepa y Río Santiago en un estado de total desprotección.
-        </p>
-        <p class="sub">
-            4. La violencia de género como problemática estructural
-        </p>
-        <p>
-            A pesar de estas adversidades, iniciativas como las del Fondo de Población de las Naciones Unidas (UNFPA) están generando un cambio. En Condorcanqui, se interviene en Santa María de Nieva y comunidades como Juan Velasco Alvarado y Mamayaque, donde brigadistas y lideresas trabajan para empoderar a las mujeres y niñas. Estas acciones no solo buscan romper el ciclo de violencia, sino también educar a las nuevas generaciones en derechos y construir redes de apoyo comunitario. Sin embargo, el camino hacia un cambio sostenible requiere esfuerzos intersectoriales y mejoras urgentes en infraestructura y acceso a servicios básicos.
-        </p>
-        <p>
-            Condorcanqui no solo es un territorio marcado por desafíos, sino también por la resistencia y la fuerza de sus comunidades, donde el compromiso de mujeres Awajún está forjando un futuro diferente para las nuevas generaciones.
-        </p>
+        </p>        
     </div>
 
     <div class="main-trivia">
@@ -199,10 +190,12 @@
                         <label>
                             <input type="radio" name="q1" value='Harris'>
                             <span>A</span> <p>Los familiares denuncian la agresión sexual a la Policía.</p>
+                            <img src="./img/icon-x.png" alt="" width="100%" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q1" value='Trump'>
                             <span>B</span> <p>El agresor pagará una multa de 100 soles a la familia y se hará cargo del hijo casándose con ella.</p>
+                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>                
                     </div>    
                     <div class="box-botones">
@@ -222,11 +215,12 @@
                         <label>
                             <input type="radio" name="q2" value='Trump'>
                             <span>A</span> <p>Que hable y nadie le crea. Entonces sentirá vergüenza y responsabilidad por “provocar” al coordinador. Puede perder el año escolar si sigue “mintiendo”. </p>
+                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q2" value='Harris'>
                             <span>B</span> <p>Denunciarlo ante las autoridades del colegio, recibir apoyo psicológico y que el coordinador sea expulsado de inmediato.</p>
-                            
+                            <img src="./img/icon-x.png" alt="" width="100%" class="x-2" style="display: none;">
                         </label>  
                     </div>
                     <div class="box-botones">
@@ -249,10 +243,12 @@
                         <label>
                             <input type="radio" name="q3" value='Harris'>
                             <span>A</span> <p>Tener acceso a un centro médico que le entregue un kit de emergencia.</p>
+                            <img src="./img/icon-x.png" alt="" width="100%" class="x-3" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q3" value='Trump'>
                             <span>B</span> <p>Morir al no recibir tratamiento contra el VIH, quitarse la vida porque quedó embarazada y no lo sabía.</p>
+                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>  
                     </div>
                     <div class="box-botones">
@@ -731,16 +727,28 @@
 
         document.querySelectorAll('input[type="radio"]').forEach(radio => {
             radio.addEventListener('change', (event) => {
-                // Eliminar la clase 'opcion-activa' de todos los labels
+                // Obtener la pregunta contenedora
                 const question = event.target.closest('.question');
+
+                // Eliminar la clase 'opcion-activa' y ocultar los íconos en todos los labels
                 question.querySelectorAll('label').forEach(label => {
                     label.classList.remove('opcion-activa');
+                    const icon = label.querySelector('img');
+                    if (icon) {
+                        icon.style.display = 'none';
+                    }
                 });
 
                 // Añadir la clase 'opcion-activa' al label asociado al input seleccionado
                 const selectedLabel = event.target.closest('label');
                 if (selectedLabel) {
                     selectedLabel.classList.add('opcion-activa');
+
+                    // Mostrar el ícono correspondiente
+                    const icon = selectedLabel.querySelector('img');
+                    if (icon) {
+                        icon.style.display = 'block';
+                    }
                 }
 
                 // Crear o actualizar el mensaje
@@ -762,7 +770,6 @@
                     question.insertBefore(messageBox, buttonsBox);
                 }
 
-
                 // Activar o desactivar el botón de siguiente
                 const nextButton = question.querySelector('button[onclick^="nextQuestion"], button[onclick="calculateResult()"]');
                 if (nextButton) {
@@ -774,6 +781,7 @@
                 }
             });
         });
+
 
 
     </script>
@@ -825,77 +833,77 @@
     <!-- scroll video -->
     <script>
        function setupVideoScroll(options = {}) {
-    const {
-        videoId = "myVideo",
-        containerId = "videoContainer",
-        speed = 500,
-        triggerHook = 0,
-        duration = "800%",
-        controller = new ScrollMagic.Controller()
-    } = options;
+            const {
+                videoId = "myVideo",
+                containerId = "videoContainer",
+                speed = 500,
+                triggerHook = 0,
+                duration = "800%",
+                controller = new ScrollMagic.Controller()
+            } = options;
 
-    // Obtener elementos
-    const video = document.getElementById(videoId);
-    const container = document.getElementById(containerId);
+            // Obtener elementos
+            const video = document.getElementById(videoId);
+            const container = document.getElementById(containerId);
 
-    // Asegurarse de que el video está completamente cargado
-    const ensureVideoLoaded = () => {
-        if (video.readyState === 4) { // readyState 4 significa que el video está completamente cargado
-            container.style.height = (video.duration * speed) + 'px';
-            return true;
+            // Asegurarse de que el video está completamente cargado
+            const ensureVideoLoaded = () => {
+                if (video.readyState === 4) { // readyState 4 significa que el video está completamente cargado
+                    container.style.height = (video.duration * speed) + 'px';
+                    return true;
+                }
+                setTimeout(ensureVideoLoaded, 100); // Intentar nuevamente en 100ms
+            };
+
+            video.addEventListener('loadedmetadata', ensureVideoLoaded);
+
+            // Reproducir el video en base al scroll, solo si la duración está lista
+            const playVideo = () => {
+                if (video.duration > 0) {  // Verificar si la duración del video es válida
+                    const scrollY = window.scrollY;
+                    const height = document.documentElement.scrollHeight - window.innerHeight;
+
+                    const percentage = scrollY / height;
+                    const currentTime = video.duration * percentage;
+
+                    // Validar que currentTime es un número finito y dentro del rango
+                    if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
+                        video.currentTime = currentTime;
+                    }
+                }
+
+                window.requestAnimationFrame(playVideo);
+            };
+
+            // Configurar ScrollMagic Scene
+            const scene = new ScrollMagic.Scene({
+                triggerElement: `#${containerId}`,
+                triggerHook: triggerHook,
+                duration: duration,
+            })
+                .setPin(`#${containerId}`)
+                .addIndicators({ name: "video scroll" })
+                .on("end", () => {
+                    // Cuando la escena termine, agregar clase para ajustar la altura
+                    const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
+                    if (pinSpacer) {
+                        pinSpacer.classList.add('adjust-height'); // Clase personalizada
+                    }
+                })
+                .addTo(controller);
+
+            // Adjuntar evento de scroll para sincronizar el video
+            window.addEventListener("scroll", playVideo);
         }
-        setTimeout(ensureVideoLoaded, 100); // Intentar nuevamente en 100ms
-    };
 
-    video.addEventListener('loadedmetadata', ensureVideoLoaded);
-
-    // Reproducir el video en base al scroll, solo si la duración está lista
-    const playVideo = () => {
-        if (video.duration > 0) {  // Verificar si la duración del video es válida
-            const scrollY = window.scrollY;
-            const height = document.documentElement.scrollHeight - window.innerHeight;
-
-            const percentage = scrollY / height;
-            const currentTime = video.duration * percentage;
-
-            // Validar que currentTime es un número finito y dentro del rango
-            if (!isNaN(currentTime) && currentTime >= 0 && currentTime <= video.duration) {
-                video.currentTime = currentTime;
-            }
-        }
-
-        window.requestAnimationFrame(playVideo);
-    };
-
-    // Configurar ScrollMagic Scene
-    const scene = new ScrollMagic.Scene({
-        triggerElement: `#${containerId}`,
-        triggerHook: triggerHook,
-        duration: duration,
-    })
-        .setPin(`#${containerId}`)
-        .addIndicators({ name: "video scroll" })
-        .on("end", () => {
-            // Cuando la escena termine, agregar clase para ajustar la altura
-            const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
-            if (pinSpacer) {
-                pinSpacer.classList.add('adjust-height'); // Clase personalizada
-            }
-        })
-        .addTo(controller);
-
-    // Adjuntar evento de scroll para sincronizar el video
-    window.addEventListener("scroll", playVideo);
-}
-
-// Uso de la función
-setupVideoScroll({
-    videoId: "myVideo",
-    containerId: "videoContainer",
-    speed: 500,
-    triggerHook: 0,
-    duration: "800%"
-});
+        // Uso de la función
+        setupVideoScroll({
+            videoId: "myVideo",
+            containerId: "videoContainer",
+            speed: 500,
+            triggerHook: 0,
+            duration: "800%"
+        });
 
 
 
