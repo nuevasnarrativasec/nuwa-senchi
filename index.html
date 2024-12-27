@@ -15,9 +15,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v17">
+    <link rel="stylesheet" href="./css/style.css?v20">
 </head>
 <body>
+
+    <!--<div class="box-layer-audio">
+        <div class="ctn-layer-audio">
+            <img src="./img/audio-icon-2.png" alt="" width="100%" id="audio-icon">
+            <p>
+                Para una mejor experiencia te recomendamos activar el audio.
+            </p>
+            <span id="cerrar-layer-audio">cerrar</span>
+        </div>
+    </div>-->
 
     <div id="social">
         <button id="fb" class="sharer button" data-sharer="facebook" data-hashtag="" data-url="#">Facebook</button>
@@ -27,9 +37,18 @@
         <button id="tw" class="sharer button" data-sharer="twitter" data-title="El Comercio" data-hashtags="" data-via="elcomercio_peru" data-url="#">Twitter</button>
     </div>
 
+    <!--<div class="box-controles-audio">
+        <audio id="track">
+            <source src="./audio/prueba-narracion.mp3" type="audio/mpeg">
+        </audio>
+        <div id="player-container-main">
+            <div id="play-pause-main" class="play-main">Play</div>
+        </div>
+    </div>-->
+
     <div class="main-portada">
         <img src="./img/flecha-bajar.png" alt="" width="100%" class="flecha-bajar">
-        <video width="100%" height="100%" muted autoplay playsinline loop>
+        <video width="100%" height="100%" muted playsinline loop>
             <source src="./video/video-portada.mp4" type="video/mp4">
         </video>
     </div>
@@ -523,6 +542,9 @@
         });
     </script>
 
+    <!-- intro audio -->
+      
+
     <!-- flecha bajar -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -554,6 +576,32 @@
                 $(".mariposa-2").removeClass("enterLeft"); 
             })
             .addTo(controller);   
+
+            // audio video animación niños     
+            const audioTrack = document.getElementById('track');
+
+            // Audio video animación niños
+            new ScrollMagic.Scene({
+                triggerElement: "#videoContainer", // Elemento que activa la escena
+                triggerHook: 0.5, // Posición del trigger
+            })
+            .on("enter", function(event) {
+                // Reproducir el audio al entrar en la escena
+                if (audioTrack.paused) {
+                    audioTrack.play();
+                }
+            })
+            .on("leave", function(event) {
+                // Detener el audio al salir de la escena
+                if (!audioTrack.paused) {
+                    audioTrack.pause();
+                    audioTrack.currentTime = 0; // Reiniciar el audio al inicio
+                }
+            })
+            .addIndicators({ name: "video audio animación" }) // Indicadores para depuración
+            .addTo(controller); // Añadir al controlador de ScrollMagic
+ 
+
 
 
             // zoom al mapa ubicador
@@ -759,9 +807,9 @@
                 }
 
                 if (event.target.value === 'Harris') {
-                    messageBox.innerHTML = "<p>Esta opción no está disponible para esta comunidad.</p>";
+                    messageBox.innerHTML = "<p>En esta zona Awajun esta no es una opción.</p>";
                 } else if (event.target.value === 'Trump') {
-                    messageBox.innerHTML = "<p>Única opción posible, la otra no está disponible para esta comunidad.</p>";
+                    messageBox.innerHTML = "<p>Aunque increíble esta fue la opción que se tomó porque la opción A no existe en esta comunidad.</p>";
                 }
 
                 // Insertar el mensaje antes del contenedor de botones
@@ -875,6 +923,8 @@
                 window.requestAnimationFrame(playVideo);
             };
 
+            const audioTrack = document.getElementById('track');
+
             // Configurar ScrollMagic Scene
             const scene = new ScrollMagic.Scene({
                 triggerElement: `#${containerId}`,
@@ -888,6 +938,10 @@
                     const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
                     if (pinSpacer) {
                         pinSpacer.classList.add('adjust-height'); // Clase personalizada
+                    }
+                    if (!audioTrack.paused) {
+                        audioTrack.pause();
+                        audioTrack.currentTime = 0; // Reiniciar el audio al inicio
                     }
                 })
                 .addTo(controller);

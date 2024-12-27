@@ -26,7 +26,6 @@ html {
     right: 0;
     z-index: 600;
 }
-
     #social ul {
         display: inline-block;
         margin: 0 auto;
@@ -69,6 +68,101 @@ html {
                     text-indent: -9999px;
                     width: 36px;
                 }
+
+.box-layer-audio{
+    background-color: rgba(132, 25, 185, 0.98);
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+    .ctn-layer-audio{
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;        
+    }
+        .ctn-layer-audio img{
+            cursor: pointer;
+            display: block;
+            margin: 0 auto 15px;
+            max-width: 65px;
+
+            animation: btn-layer-audio 5s infinite ease-in-out;
+        }
+        .ctn-layer-audio p{
+            color: #fff;
+            font: 16px/1.4 "Roboto", serif;
+            font-weight: 500;
+            margin: 0 auto;
+            max-width: 300px;
+            text-align: center;            
+        }
+        .box-layer-audio span{
+            color: #c2c2c2;
+            cursor: pointer;
+            display: block;
+            font: 13px/1.5 "Roboto", serif;
+            margin: 10px auto;
+            text-align: center;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        @keyframes btn-layer-audio {
+            
+            0%{
+                transform: scale(.9);
+            }
+            50%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(.9);
+            }
+
+        }
+
+.box-controles-audio{
+    float: right;
+    position: sticky;
+    top: 60px;
+    z-index: 100;
+}
+    .box-controles-audio{
+
+    }
+    #player-container-main{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 700;
+    }
+        #player-container-main #play-pause-main {
+            border: 1px solid #000;
+            border-radius: 30px;
+            cursor: pointer;    
+            height: 25px;
+            width: 20px;
+            padding: 12px 15px;
+            text-indent: -999999px;
+            z-index: 2;
+
+            background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/off.png');
+            background-repeat: no-repeat!important;
+            background-position: center;
+            background-size: 16px;
+            background-repeat:no-repeat;
+            background-position:center;
+            
+        }
+            .play-main {
+                background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/off.png');
+            }
+            .pause-main {
+                background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/on.png')!important;
+            }
+
 
 .main-portada{
     height: 100vh;
@@ -573,8 +667,8 @@ html {
                 .box-main-trivia .question label p:hover,
                 label.active,
                 label.opcion-activa p{      
-                    background-color: #EA9015;     
-                    color: #fff;
+                    /*background-color: #EA9015;     
+                    color: #fff;*/
                     transition: background-color 0.3s, border 0.3s;
                 }
                 .opcion-inactiva{
@@ -667,39 +761,44 @@ html {
                         color: #fff;
                     }
 
-.question, #quizForm {
-    display: none;
-}
-.question.active {
-    display: block;
-}
-#startScreen {
-    display: block;
-    text-align: center;
-}
-.question img{
-    display: block;
-    margin: 0 auto;
-    max-width: 35px;
-    position: absolute;
-    right: 0;
-    top: 20%;
-}   
-    .box-preguntas .check-1{
-        right: -50px;
-    }
-    .box-preguntas .x-2,
-    .box-preguntas .x-3{
-        right: -50px;
-    }
+        .question, 
+        #quizForm {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        #startScreen {
+            display: block;
+            text-align: center;
+        }
+        .question img{
+            display: block;
+            margin: 0 auto;
+            max-width: 35px;
+            position: absolute;
+            right: 0;
+            top: 20%;
+        }   
+            .box-preguntas .check-1{
+                right: -50px;
+            }
+            .box-preguntas .x-2,
+            .box-preguntas .x-3{
+                right: -50px;
+            }
 
-#quizForm .message-box p{
-    color: #dba55a;
-    font-size: 17px;
-    font-weight: 700;
-    max-width: 40%;
-    width: 100%;
-}
+        #quizForm .message-box p{
+            background: #ea9015;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 700;
+            margin-left: 40px;
+            max-width: 50%;
+            padding: 10px;
+            width: 100%;
+        }
 
 .box-lideresas{
     background: #fff;
