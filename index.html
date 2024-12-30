@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v20">
+    <link rel="stylesheet" href="./css/style.css?v22">
 </head>
 <body>
 
@@ -209,12 +209,12 @@
                         <label>
                             <input type="radio" name="q1" value='Harris'>
                             <span>A</span> <p>Los familiares denuncian la agresión sexual a la Policía.</p>
-                            <img src="./img/icon-x.png" alt="" width="100%" style="display: none;">
+                            <img src="./img/icon-x-2.png" alt="" width="100%" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q1" value='Trump'>
                             <span>B</span> <p>El agresor pagará una multa de 100 soles a la familia y se hará cargo del hijo casándose con ella.</p>
-                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
+                            <img src="./img/icon-check-2.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>                
                     </div>    
                     <div class="box-botones">
@@ -234,12 +234,12 @@
                         <label>
                             <input type="radio" name="q2" value='Trump'>
                             <span>A</span> <p>Que hable y nadie le crea. Entonces sentirá vergüenza y responsabilidad por “provocar” al coordinador. Puede perder el año escolar si sigue “mintiendo”. </p>
-                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
+                            <img src="./img/icon-check-2.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q2" value='Harris'>
                             <span>B</span> <p>Denunciarlo ante las autoridades del colegio, recibir apoyo psicológico y que el coordinador sea expulsado de inmediato.</p>
-                            <img src="./img/icon-x.png" alt="" width="100%" class="x-2" style="display: none;">
+                            <img src="./img/icon-x-2.png" alt="" width="100%" class="x-2" style="display: none;">
                         </label>  
                     </div>
                     <div class="box-botones">
@@ -262,12 +262,12 @@
                         <label>
                             <input type="radio" name="q3" value='Harris'>
                             <span>A</span> <p>Tener acceso a un centro médico que le entregue un kit de emergencia.</p>
-                            <img src="./img/icon-x.png" alt="" width="100%" class="x-3" style="display: none;">
+                            <img src="./img/icon-x-2.png" alt="" width="100%" class="x-3" style="display: none;">
                         </label>
                         <label>
                             <input type="radio" name="q3" value='Trump'>
                             <span>B</span> <p>Morir al no recibir tratamiento contra el VIH, quitarse la vida porque quedó embarazada y no lo sabía.</p>
-                            <img src="./img/icon-check.png" alt="" width="100%" class="check-1" style="display: none;">
+                            <img src="./img/icon-check-2.png" alt="" width="100%" class="check-1" style="display: none;">
                         </label>  
                     </div>
                     <div class="box-botones">
@@ -543,7 +543,57 @@
     </script>
 
     <!-- intro audio -->
-      
+    <script>        
+        const audioIcon = document.getElementById('audio-icon');
+        const cerrarLayerAudio = document.getElementById('cerrar-layer-audio');
+        const boxLayerAudio = document.querySelector('.box-layer-audio');
+        const mainPortadaVideo = document.querySelector('.main-portada video');
+        const controlBtnMain = document.getElementById('play-pause-main');
+
+        let isAudioEnabled = false; // Estado general del audio
+
+        // Manejo del clic en el ícono de audio
+        audioIcon.addEventListener('click', () => {
+            // Ocultar el box-layer-audio
+            boxLayerAudio.style.display = 'none';
+            // Reproducir el video con audio
+            mainPortadaVideo.muted = false; // Desactivar silencio
+            mainPortadaVideo.play(); // Reproducir el video
+            // Cambiar clase de control general
+            controlBtnMain.classList.replace('play-main', 'pause-main');
+            isAudioEnabled = true; // Actualizar estado general
+        });
+
+        // Manejo del clic en el botón cerrar
+        cerrarLayerAudio.addEventListener('click', () => {
+            // Ocultar el box-layer-audio
+            boxLayerAudio.style.display = 'none';
+            // Reproducir el video sin audio
+            mainPortadaVideo.muted = true; // Mantener silencio
+            mainPortadaVideo.play(); // Reproducir el video
+            // Dejar clase de control general como 'play'
+            controlBtnMain.classList.replace('pause-main', 'play-main');
+            isAudioEnabled = false; // Actualizar estado general
+        });
+
+        // Manejo del botón de control general
+        controlBtnMain.addEventListener('click', () => {
+            if (isAudioEnabled) {
+                // Desactivar el audio en toda la landing
+                mainPortadaVideo.muted = true;
+                controlBtnMain.classList.replace('pause-main', 'play-main');
+                isAudioEnabled = false;
+            } else {
+                // Activar el audio en toda la landing
+                mainPortadaVideo.muted = false;
+                controlBtnMain.classList.replace('play-main', 'pause-main');
+                isAudioEnabled = true;
+            }
+        });
+
+
+
+    </script>    
 
     <!-- flecha bajar -->
     <script>
