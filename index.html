@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v22">
+    <link rel="stylesheet" href="./css/style.css?v25">
 </head>
 <body>
 
@@ -39,7 +39,7 @@
 
     <!--<div class="box-controles-audio">
         <audio id="track">
-            <source src="./audio/prueba-narracion.mp3" type="audio/mpeg">
+            <source src="./audio/sonido-selva.mp3" type="audio/mpeg">
         </audio>
         <div id="player-container-main">
             <div id="play-pause-main" class="play-main">Play</div>
@@ -48,8 +48,8 @@
 
     <div class="main-portada">
         <img src="./img/flecha-bajar.png" alt="" width="100%" class="flecha-bajar">
-        <video width="100%" height="100%" muted playsinline loop>
-            <source src="./video/video-portada.mp4" type="video/mp4">
+        <video width="100%" height="100%" muted autoplay loop playsinline id="main-portada-video">
+            <source src="./video/video-portada-audio.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -68,7 +68,7 @@
 
     <div class="box-morado">
         <img src="./img/mariposa-2.webp" alt="" width="100%" class="mariposa-2">
-        <img src="./img/corte-morado.webp" alt="" width="100%" class="corte">
+        <img src="./img/corte-negro.png" alt="" width="100%" class="corte">
         <div class="box-texto-morado">
             <h3>el bosque protector</h3>
             <p>
@@ -79,9 +79,11 @@
 
     <div id="videoContainer">
         <video id="myVideo">
-            <source src="./video/kiomy.mp4" type="video/mp4" />
+            <source src="./video/kiomy-2.mp4" type="video/mp4" />
         </video>
     </div>
+
+    <img src="./img/corte-negro-2.png" alt="" width="100%" class="corte">
 
     <!--<div class="box-parallax">
         <div class="section">
@@ -129,6 +131,7 @@
     </div>-->
 
     <div class="main-audio">
+        <img src="./img/mariposa-verde-grande.webp" alt="" width="100%" class="mariposa-verde-grande">
         <h3>
             wika antunjame
         </h3>
@@ -137,7 +140,7 @@
             <div class="ctn-audio">
                 <p>yo te escucho</p>
 
-                <audio id="track">
+                <audio id="track-wika">
                     <source src="https://traffic.omny.fm/d/clips/8b642147-25e1-44dd-9991-adad01233795/b5ee26de-6535-48db-ae6a-ae7601894a37/49036760-1182-4cca-a567-b04c013f95e7/audio.mp3" type="audio/mpeg" />
                 </audio>
                   
@@ -497,6 +500,53 @@
         </div>
 
     </div>
+
+    <div class="box-footer-mariposas">
+        <div class="box-footer-morado">
+            <h5>nuwa senchi</h5>
+            <p>
+                Elige una mariposa y sé parte del cambio que se necesita. <span>Comparte y difunde estas historias.</span>
+            </p>
+            <img src="./img/flecha-bajar-box-footer.png" alt="" width="100%">
+        </div>
+        <div class="box-footer-negro">
+            <img src="./img/mariposa-morada.gif" alt="" width="100%" id="mariposa-footer-1" class="mariposa gris">
+            <img src="./img/mariposa-verde.gif" alt="" width="100%" id="mariposa-footer-2" class="mariposa gris">
+            <img src="./img/mariposa-naranja.gif" alt="" width="100%" id="mariposa-footer-3" class="mariposa gris">
+
+            <div class="box-mensaje-footer" id="mensaje-mariposa-1" style="display: none;">
+                <p>
+                    La violencia genera más violencia No te quedes callada y forma parte del cambio.
+                </p>
+            </div>
+            <div class="box-mensaje-footer" id="mensaje-mariposa-2" style="display: none;">
+                <p>
+                    Segundo mensaje más violencia No te quedes callada y forma parte del cambio.
+                </p>
+            </div>
+            <div class="box-mensaje-footer" id="mensaje-mariposa-3" style="display: none;">
+                <p>
+                    Tercer mensaje más violencia No te quedes callada y forma parte del cambio.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-footer">
+        <img src="./img/logo-comercio-footer.png" alt="" width="100%">
+        <ul>
+            <li>
+                <p>
+                    Textos:
+                    <span>Nombres</span>
+                </p>
+                <p>
+                    Realización:
+                    <span>Nuevas Narrativas EC</span>
+                </p>
+            </li>
+        </ul>
+    </div>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
@@ -550,6 +600,8 @@
         const mainPortadaVideo = document.querySelector('.main-portada video');
         const controlBtnMain = document.getElementById('play-pause-main');
 
+        const audioTrack = document.getElementById('track');
+
         let isAudioEnabled = false; // Estado general del audio
 
         // Manejo del clic en el ícono de audio
@@ -578,20 +630,39 @@
 
         // Manejo del botón de control general
         controlBtnMain.addEventListener('click', () => {
+            const allVideos = document.querySelectorAll('video'); // Selecciona todos los videos
+            const allAudios = document.querySelectorAll('audio'); // Selecciona todos los audios
+
             if (isAudioEnabled) {
-                // Desactivar el audio en toda la landing
-                mainPortadaVideo.muted = true;
+                // Silenciar toda la página
+                allVideos.forEach(video => {
+                    video.muted = true;
+                });
+                allAudios.forEach(audio => {
+                    if (!audio.paused) {
+                        audio.dataset.wasPlaying = "true"; // Marcar los audios que estaban reproduciéndose
+                        audio.pause();
+                    }
+                });
+
                 controlBtnMain.classList.replace('pause-main', 'play-main');
                 isAudioEnabled = false;
             } else {
-                // Activar el audio en toda la landing
-                mainPortadaVideo.muted = false;
+                // Reactivar el audio en la página
+                allVideos.forEach(video => {
+                    video.muted = false;
+                });
+                allAudios.forEach(audio => {
+                    if (audio.dataset.wasPlaying === "true") {
+                        audio.play(); // Solo reproducir los audios que estaban activos
+                        delete audio.dataset.wasPlaying; // Limpiar el marcador
+                    }
+                });
+
                 controlBtnMain.classList.replace('play-main', 'pause-main');
                 isAudioEnabled = true;
             }
         });
-
-
 
     </script>    
 
@@ -665,7 +736,7 @@
             .setPin('.box-mapa')
             .setClassToggle('#mapa', 'showing')
             .setTween(zoomMapa)
-            .addIndicators({name: 'zoom mapa'})
+            //.addIndicators({name: 'zoom mapa'})
             .addTo(controller);
 
 
@@ -684,6 +755,23 @@
             })
             .addTo(controller);  
 
+            const mainPortadaVideo2 = document.getElementById('main-portada-video');
+            new ScrollMagic.Scene({
+                triggerElement: ".main-portada",
+                triggerHook: 0.8,
+            })
+            .on("enter", function(event) {
+              
+            })
+            .on("leave", function(event) {
+                // Mutear el video cuando la sección sale de la escena
+                if (!mainPortadaVideo2.muted) {
+                    mainPortadaVideo2.muted = true; // Activar el mute
+                }
+            })
+            .addIndicators("audio main portada")
+            .addTo(controller);  
+
             // Video scroll
             /*new ScrollMagic.Scene({
             triggerElement: "#videoContainer",
@@ -699,7 +787,7 @@
     
     <!-- audios testimonios -->
     <script>
-        var track = document.getElementById('track');
+        var track = document.getElementById('track-wika');
 
         var controlBtn = document.getElementById('play-pause');
 
@@ -930,13 +1018,13 @@
 
     <!-- scroll video -->
     <script>
-       function setupVideoScroll(options = {}) {
+        function setupVideoScroll(options = {}) {
             const {
                 videoId = "myVideo",
                 containerId = "videoContainer",
                 speed = 500,
                 triggerHook = 0,
-                duration = "800%",
+                duration = "1000%",
                 controller = new ScrollMagic.Controller()
             } = options;
 
@@ -973,28 +1061,46 @@
                 window.requestAnimationFrame(playVideo);
             };
 
-            const audioTrack = document.getElementById('track');
+            document.addEventListener("DOMContentLoaded", () => { 
+                const mainPortadaVideo = document.getElementById('main-portada-video');
+                const audioTrack = document.getElementById('track');
 
-            // Configurar ScrollMagic Scene
-            const scene = new ScrollMagic.Scene({
-                triggerElement: `#${containerId}`,
-                triggerHook: triggerHook,
-                duration: duration,
-            })
-                .setPin(`#${containerId}`)
-                .addIndicators({ name: "video scroll" })
-                .on("end", () => {
-                    // Cuando la escena termine, agregar clase para ajustar la altura
-                    const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
-                    if (pinSpacer) {
-                        pinSpacer.classList.add('adjust-height'); // Clase personalizada
-                    }
-                    if (!audioTrack.paused) {
-                        audioTrack.pause();
-                        audioTrack.currentTime = 0; // Reiniciar el audio al inicio
-                    }
+                // Configurar ScrollMagic Scene
+                const scene = new ScrollMagic.Scene({
+                    triggerElement: `#${containerId}`,
+                    triggerHook: triggerHook,
+                    duration: duration,
                 })
-                .addTo(controller);
+                    .setPin(`#${containerId}`)
+                    //.addIndicators({ name: "video scroll" })
+                    .on("start", () => {
+                        // Al inicio de la escena, mutear el video de portada
+                        if (!mainPortadaVideo.muted) {
+                            mainPortadaVideo.muted = true;
+                        }
+
+                        // Verificar el estado del control general antes de reproducir el audio
+                        if (isAudioEnabled && audioTrack.paused) {
+                            audioTrack.play();
+                        }
+                    })
+                    .on("end", () => {
+                        // Cuando la escena termine, ajustar la altura y pausar el audio
+                        const pinSpacer = document.querySelector('.scrollmagic-pin-spacer');
+                        if (pinSpacer) {
+                            pinSpacer.classList.add('adjust-height'); // Clase personalizada
+                        }
+
+                        // Detener el audio solo si está reproduciéndose
+                        if (!audioTrack.paused) {
+                            audioTrack.pause();
+                            audioTrack.currentTime = 0; // Reiniciar el audio al inicio
+                        }
+                    })
+                    .addTo(controller);
+
+            });
+            
 
             // Adjuntar evento de scroll para sincronizar el video
             window.addEventListener("scroll", playVideo);
@@ -1006,11 +1112,40 @@
             containerId: "videoContainer",
             speed: 500,
             triggerHook: 0,
-            duration: "800%"
+            duration: "1000%"
         });
 
 
 
+
+    </script>
+
+    <!-- mariposas footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mariposas = document.querySelectorAll(".mariposa");
+            const mensajes = document.querySelectorAll(".box-mensaje-footer");
+
+            mariposas.forEach((mariposa) => {
+                mariposa.addEventListener("click", () => {
+                    const id = mariposa.id.split("-").pop(); // Obtener el número de la mariposa
+                    const mensaje = document.getElementById(`mensaje-mariposa-${id}`);
+
+                    if (mariposa.classList.contains("gris")) {
+                        // Activar mariposa y mostrar mensaje
+                        mariposas.forEach((m) => m.classList.add("gris")); // Resetear filtro gris
+                        mensajes.forEach((m) => (m.style.display = "none")); // Ocultar todos los mensajes
+
+                        mariposa.classList.remove("gris");
+                        mensaje.style.display = "block";
+                    } else {
+                        // Desactivar mariposa y ocultar mensaje
+                        mariposa.classList.add("gris");
+                        mensaje.style.display = "none";
+                    }
+                });
+            });
+        });
 
     </script>
 
