@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v25">
+    <link rel="stylesheet" href="./css/style.css?v26">
 </head>
 <body>
 
@@ -721,8 +721,21 @@
             })
             .addIndicators({ name: "video audio animación" }) // Indicadores para depuración
             .addTo(controller); // Añadir al controlador de ScrollMagic
- 
-
+            
+            // mariposa verde grande
+            new ScrollMagic.Scene({
+                triggerElement: ".mariposa-verde-grande",
+                triggerHook: 0.5,
+            })
+            .on("enter", function(event) {
+                $(".mariposa-verde-grande").addClass("enterRight"); 
+                $(".mariposa-verde-grande").removeClass("salirRight"); 
+            })
+            .on("leave", function(event) {
+                $(".mariposa-verde-grande").addClass("salirRight"); 
+                $(".mariposa-verde-grande").removeClass("enterRight"); 
+            })
+            .addTo(controller);  
 
 
             // zoom al mapa ubicador
