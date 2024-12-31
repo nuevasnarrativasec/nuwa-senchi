@@ -139,7 +139,8 @@ html {
         z-index: 700;
     }
         #player-container-main #play-pause-main {
-            border: 1px solid #000;
+            background-color: #fff;
+            border: 1px solid #792bb8;
             border-radius: 30px;
             cursor: pointer;    
             height: 25px;
@@ -148,19 +149,19 @@ html {
             text-indent: -999999px;
             z-index: 2;
 
-            background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/off.png');
+            background-image: url('../img/off-morado.png');
             background-repeat: no-repeat!important;
             background-position: center;
-            background-size: 16px;
+            background-size: 30px;
             background-repeat:no-repeat;
             background-position:center;
             
         }
             .play-main {
-                background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/off.png');
+                background-image: url('../img/off-morado.png');
             }
             .pause-main {
-                background-image: url('https://nuevasnarrativasec.github.io/edificio-comercio-centenario/img/on.png')!important;
+                background-image: url('../img/on-morado.png')!important;
             }
 
 
@@ -223,7 +224,7 @@ html {
     position: relative;
 }
     .box-texto-morado{
-        background-color: #8419b9;
+        background-color: #000;
         padding-bottom: 60px;
     }
         .box-texto-morado h3{
@@ -367,6 +368,9 @@ html {
 .main-audio{
     margin-bottom: 80px;
 }
+    .mariposa-verde-grande{
+        display: none;
+    }
     .main-audio h3{
         color: #711FB4;
         font: 48px/1.3 'from_where_you_areregular';
@@ -963,6 +967,119 @@ html {
     height: 100vh !important;  
     min-height: 100vh !important;
 }
+
+.box-footer-mariposas{
+
+}
+    .box-footer-morado{
+        background: rgb(132,25,185);
+        background: linear-gradient(180deg, rgba(132,25,185,1) 0%, rgba(0,0,0,1) 100%);
+        padding: 90px 0;
+    }
+        .box-footer-morado h5{
+            color: #fff;
+            font: 66px/1.2 'from_where_you_areregular';
+            margin: 0 auto;
+            max-width: 300px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .box-footer-morado p{
+            color: #fff;
+            font: 19px/1.5 "Roboto", serif;
+            margin: 10px auto;
+            max-width: 480px;
+            text-align: center;
+        }
+            .box-footer-morado p span{
+                color: #EA9015;
+            }
+        .box-footer-morado img{
+            display: block;
+            margin: 40px auto;
+            max-width: 40px;
+        }
+    .box-footer-negro{
+        background-color: #000;
+        min-height: 80vh;
+        position: relative;
+    }
+        .box-footer-negro img{
+            cursor: pointer;
+            max-width: 160px;
+            position: absolute;
+        }
+            .mariposa.gris {
+                filter: grayscale(100%);
+                cursor: pointer;
+            }
+            .mariposa:hover{
+                filter: grayscale(0%);
+            }
+            #mariposa-footer-1{
+                left: 50%;
+                transform: translate(-50%,0%);
+            }
+            #mariposa-footer-2{
+                left: 30%;
+                transform: translate(-50%,0%);
+                top: 10%;
+            }
+            #mariposa-footer-3{
+                left: 70%;
+                transform: translate(-50%,0%);
+                top: 10%;
+            }
+        .box-mensaje-footer{
+            background-color: #fff;
+            border-radius: 120px;
+            box-shadow: 0 0 55px #cf98ee;
+            box-sizing: border-box;
+            bottom: 0;
+            display: none;
+            height: 220px;   
+            left: 50%; 
+            position: absolute;
+            transform: translate(-50%, -25px);    
+            width: 220px;   
+        }
+            .box-mensaje-footer p{                
+                color: #711FB4;
+                font: 16px/1.5 'from_where_you_areregular';    
+                left: 0;
+                margin: 0 auto;
+                padding: 10px 20px;         
+                position: absolute; 
+                transform: translate(0%,-50%);  
+                text-align: center; 
+                top: 50%;               
+            }
+
+.main-footer{
+    background-color: #000;
+    padding: 100px 0 60px;
+}   
+    .main-footer img{
+        display: block;
+        margin: 0 auto 50px;
+        max-width: 150px;
+    }      
+    .main-footer ul{
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }   
+        .main-footer ul li{
+            
+        }
+            .main-footer ul li p{
+                color: #fff;
+                font: 15px/1.5 "Roboto", serif;
+            }
+                .main-footer ul li p span{
+                    display: block;
+                    font-weight: 700;
+                }
 
 @media only screen and (max-width: 640px){
 
