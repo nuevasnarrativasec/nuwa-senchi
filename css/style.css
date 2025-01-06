@@ -443,13 +443,17 @@ html {
                 padding: 10px 20px 10px 30px;
                 text-transform: uppercase;
             }
-            #player-container{
+            #player-container,
+            #player-container-wika,
+            #player-container-mapas{
                 position: absolute;
                 right: 2px;
                 top: 2px;
                 z-index: 10;
             }
-            #player-container #play-pause {
+            #player-container #play-pause,
+            #player-container-wika #play-pause-wika,
+            #player-container-mapas #play-pause-mapas {
                 border-radius: 30px;
                 cursor: pointer;    
                 height: 20px;
@@ -1000,6 +1004,206 @@ html {
     min-height: 100vh !important;
 }
 
+.box-main-mapas{
+    background-color: #000;
+}
+    .box-main-mapas .main-audio{
+        padding-bottom: 20px;
+    }
+    .box-main-mapas h3{
+        color: #fff;
+        max-width: 600px;
+    }
+    .box-main-mapas .ctn-audio{
+        border-color: #fff;
+    }
+    .box-botones-mapas{
+        margin-bottom: 60px;    
+    }
+        .box-botones-mapas h5{
+            color: #fff;
+            font: 24px/1.2 "Roboto", serif;
+            font-weight: 800;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .box-botones-mapas ul{
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+            .box-botones-mapas ul li{
+                border: 1px solid #fff;
+                border-radius: 32px;
+                display: inline-block;
+                margin: 0 10px;
+                padding: 10px 30px;                
+                vertical-align: top;
+            }
+                .box-botones-mapas ul li p{
+                    color: #fff;
+                    font: 14px/1.2 'from_where_you_areregular';
+                    margin: 0 auto;
+                }  
+                .box-botones-mapas ul li:hover,
+                .btn-activo-mapa{
+                    background-color: #fff;                    
+                    cursor: pointer;
+                } 
+                    .box-botones-mapas ul li:hover p,
+                    .btn-activo-mapa p{
+                        color: #000 !important;
+                    }
+    span.separador-botones-mapas{
+        background-color: #fff;
+        display: block;
+        height: 1px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+    .box-mapas-zonas{
+
+    }
+        .info-mapa{
+            margin: 80px auto 0;
+            max-width: 800px;
+        }
+            .box-texto-mapa{
+                border-left: 1px solid #fff;
+                display: inline-block;
+                max-width: 285px;                
+                padding-left: 20px;                
+                vertical-align: top;
+            }
+                .box-texto-mapa h6,
+                .box-texto-mapa p{
+                    color: #fff;
+                }
+                .box-texto-mapa h6{
+                    font: 24px/1.2 "Roboto", serif;
+                    font-weight: 700;
+                    margin: 0 auto;
+                }
+                .box-texto-mapa p{
+                    font: 15px/1.3 "Roboto", serif;
+                    margin: 5px auto;
+                }
+                    
+            .box-botones-mapa-zonas{
+                display: inline-block;
+                float: right;
+                margin-top: -35px;
+                vertical-align: top;
+            }
+                .box-botones-mapa-zonas p{
+                    color: #fff;
+                    display: inline-block;
+                    font: 15px / 1.3 "Roboto", serif;
+                    font-weight: 700;
+                    margin: 0 auto;
+                    padding-top: 5px;
+                    vertical-align: bottom;
+                }
+                .box-botones-mapa-zonas p i{
+                    background: url('../img/icon-seleccionar-mapa.png') no-repeat;
+                    background-size: 100%;
+                    content: '';
+                    display: inline-block;
+                    height: 30px;
+                    margin: 0 4px;
+                    margin-top: -10px;
+                    vertical-align: top;
+                    width: 24px;                    
+                }
+                .box-botones-mapa-zonas ul{
+                    list-style: none;
+                    margin: 10px 0 0;
+                    padding: 0;
+                    text-align: center;
+                }
+                    .box-botones-mapa-zonas ul li{
+                        border: 2px solid #c2c2c2;
+                        border-radius: 10px;
+                        box-sizing: border-box;
+                        color: #fff;
+                        cursor: pointer;
+                        display: inline-block;
+                        font: 15px/1.1 "Roboto", serif;
+                        font-weight: 700;
+                        margin: 0 10px;
+                        min-width: 100px;
+                        padding: 15px 10px;
+                        vertical-align: top;
+                    }
+                        .btn-mapa-inactivo{
+                            border: 2px solid #c2c2c2;
+                        }
+                        .btn-mapa-inactivo span{
+                            background-color: #c2c2c2;
+                        }
+                        .box-botones-mapa-zonas ul li span{
+                            background-color: #c2c2c2;
+                            border-radius: 10px;
+                            display: block;
+                            height: 6px;
+                            margin: 0 auto 10px;
+                            max-width: 60px;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(1){
+                            margin-left: 0;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(1):hover{
+                            border: 2px solid #D42940;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(1):hover span{
+                            background-color: #D42940;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(1).active-btn-mapa{
+                            border: 2px solid #D42940;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(1).active-btn-mapa span{
+                            background-color: #D42940;
+                        }
+
+                        .box-botones-mapa-zonas ul li:nth-child(2):hover{
+                            border: 2px solid #EEA71F;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(2):hover span{
+                            background-color: #EEA71F;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(2).active-btn-mapa{
+                            border: 2px solid #EEA71F;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(2).active-btn-mapa span{
+                            background-color: #EEA71F;
+                        }
+
+                        .box-botones-mapa-zonas ul li:nth-child(3):hover{
+                            border: 2px solid #4C9B35;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(3):hover span{
+                            background-color: #4C9B35;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(3).active-btn-mapa{
+                            border: 2px solid #4C9B35;
+                        }
+                        .box-botones-mapa-zonas ul li:nth-child(3).active-btn-mapa span{
+                            background-color: #4C9B35;
+                        }
+
+        .box-contenedor-mapas,
+        .box-contenedor-mapas-2{
+            display: block;
+            margin: 50px auto 0;
+            min-height: 550px;
+            max-width: 800px;
+            position: relative;
+        }
+            .box-contenedor-mapas img{
+                position: absolute;
+            }
+
+
 .box-footer-mariposas{
 
 }
@@ -1117,6 +1321,89 @@ html {
 
 @media only screen and (max-width: 640px){
 
+    .box-main-bajada h2,
+    .box-main-bajada p,
+    .box-texto-morado p,
+    p.texto-pregunta,
+    .box-lider h3,
+    .box-lider p{
+        padding: 0 20px;
+    }
+    .mariposa-2{
+        max-width: 150px;
+    }
+    .box-texto-morado h3{
+        font-size: 2.5rem;
+    }
+    .mariposa-verde-grande{
+        max-width: 100px;
+    }
+    .main-audio h3,
+    .box-lideresas h4{
+        font-size: 2.5rem;
+    }
+    .box-contexto{
+        padding: 0 20px 60px;
+    }
+    .box-titular{
+        width: 90%;
+    }
+    .box-main-trivia{
+        height: auto;
+    }
+    .mariposa-rota{
+        max-width: 200px;
+        top: 10px;
+    }
+    .box-main-trivia .question{
+        width: 100%;
+    }
+    .box-main-trivia .question label p{
+        display: inline-block;
+        max-width: 74%;
+        vertical-align: top;        
+    }
+    #quizForm .message-box p{
+        margin-left: 0;
+        max-width: 80%;
+    }
+    #result{
+        width: 80%;
+    }
+    .box-lideresas h4{
+        font-size: 3rem;
+    }
 
+    .box-lideresas ul{
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        overflow-x: auto;
+        padding: 0;
+        white-space: nowrap;
+    }
+        .box-lideresas ul li{
+            display: inline-block;
+            margin: 0 20px;
+            min-width: 115px;
+        }
+        .box-lideresas ul::-webkit-scrollbar {
+            display: none;
+        }
+        .mariposa-lider-1{
+            top: 10px;
+        }
+        .mariposa-lider-2{
+            right: -25px;
+        }
+        .box-info-lider{
+            margin: 20px auto;
+        }
+    #mariposa-footer-2{
+        left: 15%;
+    }
+    #mariposa-footer-3{
+        left: 85%;
+    }
 
 }
