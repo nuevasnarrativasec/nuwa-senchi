@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v26">
+    <link rel="stylesheet" href="./css/style.css?v28">
 </head>
 <body>
 
@@ -144,8 +144,8 @@
                     <source src="https://traffic.omny.fm/d/clips/8b642147-25e1-44dd-9991-adad01233795/b5ee26de-6535-48db-ae6a-ae7601894a37/49036760-1182-4cca-a567-b04c013f95e7/audio.mp3" type="audio/mpeg" />
                 </audio>
                   
-                <div id="player-container">
-                    <div id="play-pause" class="play">Play</div>
+                <div id="player-container-wika">
+                    <div id="play-pause-wika" class="play">Play</div>
                 </div>
             
             </div>
@@ -205,7 +205,7 @@
                         <span>1</span>/3
                     </h6>
                     <h5>María,</h5>
-                    <p>
+                    <p class="texto-pregunta">
                         es una niña awajún de 11 años que fue víctima de violación por parte de un amigo de su papá. La pequeña quedó embarazada y su proyecto de vida quedó truncado para siempre. <span>¿Qué decisión crees que se tomó?</span>
                     </p>
                     <div class="box-preguntas">
@@ -230,7 +230,7 @@
                         <span>2</span>/3
                     </h6>
                     <h5>Pedro,</h5>
-                    <p>
+                    <p class="texto-pregunta">
                         tiene 14 años y estudia en un internado. Todas las noches, cuando sus compañeros duermen, el coordinador del área se sienta junto a él y lo toca indebidamente. Lo tiene amenazado. <span>¿Qué decisión crees que tomó?</span>
                     </p>
                     <div class="box-preguntas">
@@ -258,7 +258,7 @@
                         <span>3</span>/3
                     </h6>
                     <h5>Sara,</h5>
-                    <p>
+                    <p class="texto-pregunta">
                         tiene 13 años y fue violada en un peke peke (transporte fluvial) cuando regresaba del colegio. Su ruta a casa era la más larga. El agresor era portador de VIH. Ella solo quería seguir estudiando. <span>¿Qué decisión crees que tomó?</span>
                     </p>
                     <div class="box-preguntas">
@@ -499,6 +499,142 @@
             </p>
         </div>
 
+    </div>
+
+    <img src="./img/corte-negro-3.webp" alt="" width="100%" class="corte" style="display: block;">
+
+    <div class="box-main-mapas">
+
+        <div class="main-audio">        
+            <h3>
+                wika <br> dekaskeapi tajai
+            </h3>
+            <div class="box-audio">
+                <img src="./img/mariposa-audio.png" alt="">
+                <div class="ctn-audio">
+                    <p>yo te creo</p>
+
+                    <audio id="track-mapas">
+                        <source src="https://traffic.omny.fm/d/clips/8b642147-25e1-44dd-9991-adad01233795/b5ee26de-6535-48db-ae6a-ae7601894a37/49036760-1182-4cca-a567-b04c013f95e7/audio.mp3" type="audio/mpeg">
+                    </audio>
+                    
+                    <div id="player-container-mapas">
+                        <div id="play-pause-mapas" class="play">Play</div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="box-botones-mapas">
+            <h5>Mapas de zonas rojas en comunidades</h5>
+            <ul id="box-botones-mapas">
+                <li id="btn-mapa-1" class="btn-activo-mapa">
+                    <p>Mapa 1</p>
+                </li>
+                <li id="btn-mapa-2">
+                    <p>Mapa 2</p>
+                </li>
+                <li id="btn-mapa-3">
+                    <p>Mapa 3</p>
+                </li>
+                <li id="btn-mapa-4">
+                    <p>Mapa 4</p>
+                </li>
+            </ul>
+        </div>
+
+        <span class="separador-botones-mapas"></span>
+
+        <div class="box-mapa-zonas" id="box-mapa-1">
+
+            <div class="info-mapa">
+
+                <div class="box-texto-mapa">
+                    <h6>Zona Cenepa 1</h6>
+                    <p>Ubicado al sur de la comunidad, cuenta con mil habitantes y una comisaría propia.</p>
+                </div>
+
+                <div class="box-botones-mapa-zonas">
+                    <p>
+                        Selecciona una zona:
+                        <i></i>
+                    </p>
+                    <ul class="botonera-mapas">
+                        <li id="btn-mapa-1-1">
+                            <span></span>
+                            Áreas <br> peligrosas
+                        </li>
+                        <li id="btn-mapa-1-2">
+                            <span></span>
+                            Áreas <br> inseguras
+                        </li>
+                        <li id="btn-mapa-1-3">
+                            <span></span>
+                            Áreas <br> seguras
+                        </li>
+                    </ul>
+                </div>              
+
+            </div>
+
+            <div class="box-contenedor-mapas">
+                <img src="./img/bg-mapa-zona-1.jpg" alt="" width="100%">
+                <img src="./img/bg-mapa-zona-1-1.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-1-1">
+                <img src="./img/bg-mapa-zona-1-2.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-1-2">
+                <img src="./img/bg-mapa-zona-1-3.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-1-3">
+            </div>
+
+        </div>
+
+        <div class="box-mapa-zonas" id="box-mapa-2" style="display:none;">
+
+            <div class="info-mapa">
+
+                <div class="box-texto-mapa">
+                    <h6>Zona Cenepa 2</h6>
+                    <p>Ubicado al sur de la comunidad, cuenta con mil habitantes y una comisaría propia.</p>
+                </div>
+
+                <div class="box-botones-mapa-zonas">
+                    <p>
+                        Selecciona una zona:
+                        <i></i>
+                    </p>
+                    <ul class="botonera-mapas-2">
+                        <li id="btn-mapa-2-1">
+                            <span></span>
+                            Áreas <br> peligrosas
+                        </li>
+                        <li id="btn-mapa-2-2">
+                            <span></span>
+                            Áreas <br> inseguras
+                        </li>
+                        <li id="btn-mapa-2-3">
+                            <span></span>
+                            Áreas <br> seguras
+                        </li>
+                    </ul>
+                </div>              
+
+            </div>
+
+            <div class="box-contenedor-mapas-2">
+                <img src="./img/bg-mapa-zona-2.jpg" alt="" width="100%">
+                <img src="./img/bg-mapa-zona-2-1.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-2-1">
+                <img src="./img/bg-mapa-zona-2-2.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-2-2">
+                <img src="./img/bg-mapa-zona-2-3.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-2-3">
+            </div>
+
+        </div>
+
+        <div class="box-mapa-zonas" id="box-mapa-3" style="display:none;">
+
+        </div>
+
+        <div class="box-mapa-zonas" id="box-mapa-4" style="display:none;">
+
+        </div>
     </div>
 
     <div class="box-footer-mariposas">
@@ -800,26 +936,36 @@
     
     <!-- audios testimonios -->
     <script>
-        var track = document.getElementById('track-wika');
-
-        var controlBtn = document.getElementById('play-pause');
+        
+        function setupAudioControls(trackId, controlBtnId) {
+            var track = document.getElementById(trackId);
+            var controlBtn = document.getElementById(controlBtnId);
 
             function playPause() {
                 if (track.paused) {
                     track.play();
-                    //controlBtn.textContent = "Pause";
                     controlBtn.className = "pause";
                 } else { 
                     track.pause();
-                    //controlBtn.textContent = "Play";
                     controlBtn.className = "play";
                 }
             }
 
             controlBtn.addEventListener("click", playPause);
             track.addEventListener("ended", function() {
-            controlBtn.className = "play";
+                controlBtn.className = "play";
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Setup for the first audio
+            setupAudioControls('track-wika', 'play-pause-wika');
+
+            // Setup for the second audio
+            setupAudioControls('track-mapas', 'play-pause-mapas');
         });
+       
+
     </script>
 
     <!-- trivia -->
@@ -1159,6 +1305,69 @@
                 });
             });
         });
+
+    </script>
+
+    <!-- main mapas zonas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {            
+            const buttons = document.querySelectorAll("#box-botones-mapas li");
+            const mapBoxes = document.querySelectorAll(".box-mapa-zonas");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    // Remove active class from all buttons
+                    buttons.forEach(btn => btn.classList.remove("btn-activo-mapa"));
+                    // Hide all map boxes
+                    mapBoxes.forEach(box => box.style.display = "none");
+
+                    // Add active class to clicked button
+                    this.classList.add("btn-activo-mapa");
+                    // Show the corresponding map box
+                    const mapId = this.id.replace("btn-", "box-");
+                    document.getElementById(mapId).style.display = "block";
+                });
+            });
+
+            // Show box-mapa-1 by default
+            document.getElementById("box-mapa-1").style.display = "block";
+        });
+
+
+    </script>
+
+    <!-- btn mapas zonas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to setup map button functionality for a specific button group and map container
+            function setupMapSwitcher(buttonGroupSelector, mapContainerSelector) {
+                const buttons = document.querySelectorAll(buttonGroupSelector + " li");
+                const maps = document.querySelectorAll(mapContainerSelector + " img");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", function() {
+                        // Remove active class from all buttons
+                        buttons.forEach(btn => btn.classList.remove("active-btn-mapa"));
+                        // Add active class to the clicked button
+                        this.classList.add("active-btn-mapa");
+
+                        // Hide all map images
+                        maps.forEach(map => map.style.display = "none");
+                        // Show the corresponding map image
+                        const mapId = button.id.replace("btn-", "bg-");
+                        document.getElementById(mapId).style.display = "block";
+                    });
+                });
+            }
+
+            // Call setupMapSwitcher for the first group of buttons and maps
+            setupMapSwitcher(".botonera-mapas", ".box-contenedor-mapas");
+
+            // Example: Call setupMapSwitcher for another group (if you have more groups)
+            setupMapSwitcher(".botonera-mapas-2", ".box-contenedor-mapas-2");
+
+        });
+
 
     </script>
 
