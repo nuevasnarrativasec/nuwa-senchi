@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v28">
+    <link rel="stylesheet" href="./css/style.css?v30">
 </head>
 <body>
 
@@ -630,12 +630,88 @@
 
         <div class="box-mapa-zonas" id="box-mapa-3" style="display:none;">
 
+            <div class="info-mapa">
+
+                <div class="box-texto-mapa">
+                    <h6>Zona Cenepa 3</h6>
+                    <p>Ubicado al sur de la comunidad, cuenta con mil habitantes y una comisaría propia.</p>
+                </div>
+
+                <div class="box-botones-mapa-zonas">
+                    <p>
+                        Selecciona una zona:
+                        <i></i>
+                    </p>
+                    <ul class="botonera-mapas-3">
+                        <li id="btn-mapa-3-1">
+                            <span></span>
+                            Áreas <br> peligrosas
+                        </li>
+                        <li id="btn-mapa-3-2">
+                            <span></span>
+                            Áreas <br> inseguras
+                        </li>
+                        <li id="btn-mapa-3-3">
+                            <span></span>
+                            Áreas <br> seguras
+                        </li>
+                    </ul>
+                </div>              
+
+            </div>
+
+            <div class="box-contenedor-mapas-3">
+                <img src="./img/bg-mapa-zona-3.jpg" alt="" width="100%">
+                <img src="./img/bg-mapa-zona-3-1.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-3-1">
+                <img src="./img/bg-mapa-zona-3-2.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-3-2">
+                <img src="./img/bg-mapa-zona-3-3.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-3-3">
+            </div>
+
         </div>
 
         <div class="box-mapa-zonas" id="box-mapa-4" style="display:none;">
 
+            <div class="info-mapa">
+
+                <div class="box-texto-mapa">
+                    <h6>Zona Cenepa 4</h6>
+                    <p>Ubicado al sur de la comunidad, cuenta con mil habitantes y una comisaría propia.</p>
+                </div>
+
+                <div class="box-botones-mapa-zonas">
+                    <p>
+                        Selecciona una zona:
+                        <i></i>
+                    </p>
+                    <ul class="botonera-mapas-4">
+                        <li id="btn-mapa-4-1">
+                            <span></span>
+                            Áreas <br> peligrosas
+                        </li>
+                        <li id="btn-mapa-4-2">
+                            <span></span>
+                            Áreas <br> inseguras
+                        </li>
+                        <li id="btn-mapa-4-3">
+                            <span></span>
+                            Áreas <br> seguras
+                        </li>
+                    </ul>
+                </div>              
+
+            </div>
+
+            <div class="box-contenedor-mapas-4">
+                <img src="./img/bg-mapa-zona-4.jpg" alt="" width="100%">
+                <img src="./img/bg-mapa-zona-4-1.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-4-1">
+                <img src="./img/bg-mapa-zona-4-2.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-4-2">
+                <img src="./img/bg-mapa-zona-4-3.jpg" alt="" width="100%" style="display: none;" id="bg-mapa-4-3">
+            </div>
+
         </div>
     </div>
+
+    <img src="./img/corte-negro-2.png" alt="" width="100%" class="corte">
 
     <div class="box-footer-mariposas">
         <div class="box-footer-morado">
@@ -1360,11 +1436,17 @@
                 });
             }
 
-            // Call setupMapSwitcher for the first group of buttons and maps
+            // botonera mapa 1
             setupMapSwitcher(".botonera-mapas", ".box-contenedor-mapas");
 
-            // Example: Call setupMapSwitcher for another group (if you have more groups)
+            // botonera mapa 2
             setupMapSwitcher(".botonera-mapas-2", ".box-contenedor-mapas-2");
+
+            // botonera mapa 3
+            setupMapSwitcher(".botonera-mapas-3", ".box-contenedor-mapas-3");
+
+            // botonera mapa 4
+            setupMapSwitcher(".botonera-mapas-4", ".box-contenedor-mapas-4");
 
         });
 
