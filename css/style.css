@@ -1234,7 +1234,7 @@ html {
             text-align: center;
         }
         .box-grafico-puntaje{
-            margin: 100px auto 80px;
+            margin: 20px auto 50px;
             max-width: 600px;
             position: relative;
         }
@@ -1286,7 +1286,12 @@ html {
                         .box-grafico-puntaje ul li:nth-child(6) h6{
                             background: rgb(113,31,180);
                             background: linear-gradient(270deg, rgba(113,31,180,1) 0%, rgba(71,15,113,1) 100%);
-                        }                         
+                        }     
+            .icon-seleccionar-bloque{
+                display: block;
+                margin: 30px auto 10px;
+                max-width: 180px;
+            }                    
             span.separador-puntaje{
                 border-right: 1px dashed #939393;
                 display: inline-block;
@@ -1657,7 +1662,9 @@ html {
     .box-texto-morado p,
     p.texto-pregunta,
     .box-lider h3,
-    .box-lider p{
+    .box-lider p,
+    .box-main-promesometro p,
+    .box-footer-morado p{
         padding: 0 20px;
     }
     .mariposa-2{
@@ -1691,9 +1698,17 @@ html {
     }
     .box-main-trivia .question label p{
         display: inline-block;
-        max-width: 74%;
+        max-width: 65%;
         vertical-align: top;        
     }
+    .box-preguntas{
+        margin: 0 10px;
+    }
+        .box-preguntas .check-1,
+        .box-preguntas .x-2, 
+        .box-preguntas .x-3{
+            right: 0;
+        }
     #quizForm .message-box p{
         margin-left: 0;
         max-width: 80%;
@@ -1735,6 +1750,63 @@ html {
     }
     #mariposa-footer-3{
         left: 85%;
+    }
+
+    .box-botones-mapas {
+        margin-bottom: 30px;
+    }
+        .box-botones-mapas ul li{
+            margin: 10px;
+        }
+    span.separador-botones-mapas{
+        max-width: 80%;
+    }
+    .info-mapa{
+        margin: 40px auto 0;
+        padding: 0 20px;
+    }
+    .box-botones-mapa-zonas{
+        float: none;
+        margin-top: 30px;
+        width: 100%;
+    }
+    .box-botones-mapa-zonas ul li{
+        margin: 0 5px;
+        min-width: 90px;
+        padding: 15px 5px;
+    }
+    .box-contenedor-mapas, 
+    .box-contenedor-mapas-2, 
+    .box-contenedor-mapas-3, 
+    .box-contenedor-mapas-4{
+        min-height: 290px;
+    }
+
+    .puntaje-1.enter-barra-1{
+        /*width: 60px;*/
+    }
+    .puntaje-2.enter-barra-2{
+        width: 100px;
+    }
+    .box-grafico-puntaje ul li:nth-child(4) h6{
+        width: 75px;
+    }
+    .puntaje-3.enter-barra-3{
+        width: 150px;
+    }
+    .box-grafico-puntaje ul li:nth-child(6) h6{
+        width: 125px;
+    }
+    .box-info-proyecto p{
+        margin: 0 10px;
+        padding: 10px 0;
+    }
+    p.promesa{
+        margin-top: 0;
+    }
+
+    .box-footer-mariposas{
+        overflow: hidden;
     }
 
 }
