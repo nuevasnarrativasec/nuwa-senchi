@@ -1154,41 +1154,47 @@ html {
                         }
                         .box-botones-mapa-zonas ul li:nth-child(1):hover{
                             border: 2px solid #D42940;
+                            background-color: #D42940;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(1):hover span{
-                            background-color: #D42940;
+                            background-color: #fff;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(1).active-btn-mapa{
                             border: 2px solid #D42940;
+                            background-color: #D42940;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(1).active-btn-mapa span{
-                            background-color: #D42940;
+                            background-color: #fff;
                         }
 
                         .box-botones-mapa-zonas ul li:nth-child(2):hover{
                             border: 2px solid #EEA71F;
+                            background-color: #EEA71F;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(2):hover span{
-                            background-color: #EEA71F;
+                            background-color: #fff;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(2).active-btn-mapa{
                             border: 2px solid #EEA71F;
+                            background-color: #EEA71F;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(2).active-btn-mapa span{
-                            background-color: #EEA71F;
+                            background-color: #fff;
                         }
 
                         .box-botones-mapa-zonas ul li:nth-child(3):hover{
                             border: 2px solid #4C9B35;
+                            background-color: #4C9B35;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(3):hover span{
-                            background-color: #4C9B35;
+                            background-color: #fff;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(3).active-btn-mapa{
                             border: 2px solid #4C9B35;
+                            background-color: #4C9B35;
                         }
                         .box-botones-mapa-zonas ul li:nth-child(3).active-btn-mapa span{
-                            background-color: #4C9B35;
+                            background-color: #fff;
                         }
 
         .box-contenedor-mapas,
