@@ -1235,7 +1235,8 @@ html {
         }
         .box-grafico-puntaje{
             margin: 20px auto 50px;
-            max-width: 600px;
+            max-width: 459px;
+            min-height: 90px;
             position: relative;
         }
             .box-grafico-puntaje ul{
@@ -1244,6 +1245,7 @@ html {
                 margin: 0 auto;
                 max-width: 800px;
                 padding: 0;
+                position: relative;
                 text-align: center;
             }
                 .box-grafico-puntaje ul li{
@@ -1272,6 +1274,9 @@ html {
                         .box-grafico-puntaje ul li:nth-child(2){
                             background: rgb(251,138,0);
                             background: linear-gradient(270deg, rgba(251,138,0,1) 0%, rgba(211,44,0,1) 100%);
+
+                            left: 0;
+                            position: absolute;
                         }
                         .box-grafico-puntaje ul li:nth-child(4) h6{
                             width: 115px;
@@ -1279,13 +1284,20 @@ html {
                         .box-grafico-puntaje ul li:nth-child(4){
                             background: rgb(56,185,235);
                             background: linear-gradient(270deg, rgba(56,185,235,1) 0%, rgba(18,62,164,1) 100%);
+
+                            left: 91px;
+                            position: absolute;
+                            /*width: 0;*/
                         }
                         .box-grafico-puntaje ul li:nth-child(6) h6{
                             width: 205px;
                         }
-                        .box-grafico-puntaje ul li:nth-child(6) h6{
+                        .box-grafico-puntaje ul li:nth-child(6){
                             background: rgb(113,31,180);
                             background: linear-gradient(270deg, rgba(113,31,180,1) 0%, rgba(71,15,113,1) 100%);
+
+                            left: 232px;
+                            position: absolute;
                         }     
             .icon-seleccionar-bloque{
                 display: block;
@@ -1300,6 +1312,22 @@ html {
                 vertical-align: top;
                 width: 1px;                
             }
+                .separador-1{
+                    left: 0;
+                    position: absolute;                    
+                }
+                .separador-2{
+                    left: 91px;
+                    position: absolute;                    
+                }
+                .separador-3{
+                    left: 231px;
+                    position: absolute;                    
+                }
+                .separador-4{
+                    right: 0;
+                    position: absolute;                    
+                }
             .box-grafico-puntaje .puntaje-1{
                 width: 0;                 
             }
@@ -1321,7 +1349,7 @@ html {
                 @keyframes enter-barra-1 {
                     from {                        
                         opacity: 0;
-                        width: 0;
+                        width: 0;   
                     }
                     to {
                         opacity: 1;
@@ -1340,8 +1368,8 @@ html {
                 }
 
                 .puntaje-2.enter-barra-2{   
-                    width: 140px;        
-                    animation: enter-barra-2 1s ease-out;
+                    width: 140px;    
+                    animation: enter-barra-2 1s  ease-out;
                 }
                 .puntaje-2.salir-barra-2{    
                     opacity: 0; 
