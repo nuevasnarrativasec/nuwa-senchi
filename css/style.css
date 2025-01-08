@@ -1810,21 +1810,75 @@ html {
         min-height: 290px;
     }
 
+    .box-grafico-puntaje{
+        max-width: 320px;
+    }
     .puntaje-1.enter-barra-1{
         /*width: 60px;*/
     }
     .puntaje-2.enter-barra-2{
         width: 100px;
     }
+    .puntaje-3.enter-barra-3{        
+        width: 131px;
+    }
+    .separador-3{
+        left: 191px;                 
+    }
     .box-grafico-puntaje ul li:nth-child(4) h6{
         width: 75px;
-    }
-    .puntaje-3.enter-barra-3{
-        width: 150px;
+    }    
+    .box-grafico-puntaje ul li:nth-child(6){
+        left: 192px;
     }
     .box-grafico-puntaje ul li:nth-child(6) h6{
         width: 125px;
+    }  
+    
+    @keyframes enter-barra-2 {
+        from {                        
+            opacity: 0;
+            width: 0;
+        }
+        to {
+            opacity: 1;
+            width: 100px;
+        }
     }
+    @keyframes salir-barra-2 {
+        from {
+            opacity: 1;
+            width: 100px;
+        }
+        to {
+            opacity: 0;
+            width: 0;
+        }
+    }
+
+    @keyframes enter-barra-3 {
+        from {                        
+            opacity: 0;
+            width: 0;
+        }
+        to {
+            opacity: 1;
+            width: 131px;
+        }
+    }
+    @keyframes salir-barra-3 {
+        from {
+            opacity: 1;
+            width: 131px;
+        }
+        to {
+            opacity: 0;
+            width: 0;
+        }
+    }
+    
+
+
     .box-info-proyecto p{
         margin: 0 10px;
         padding: 10px 0;
