@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css?v38">
+    <link rel="stylesheet" href="./css/style.css?v39">
 </head>
 <body>
 
@@ -1308,19 +1308,19 @@
             })
             .on("enter", function(event) {
                 $(".puntaje-1").addClass("enter-barra-1"); 
-                //$(".puntaje-1").removeClass("salir-barra-1"); 
+                $(".puntaje-1").removeClass("salir-barra-1"); 
                 $(".puntaje-2").addClass("enter-barra-2"); 
-                //$(".puntaje-2").removeClass("salir-barra-2"); 
+                $(".puntaje-2").removeClass("salir-barra-2"); 
                 $(".puntaje-3").addClass("enter-barra-3"); 
-                //$(".puntaje-3").removeClass("salir-barra-3");
+                $(".puntaje-3").removeClass("salir-barra-3");
             })
             .on("leave", function(event) {
-                //$(".puntaje-1").addClass("salir-barra-1"); 
-                //$(".puntaje-1").removeClass("enter-barra-1"); 
-                //$(".puntaje-2").addClass("salir-barra-2"); 
-                //$(".puntaje-2").removeClass("enter-barra-2"); 
-                //$(".puntaje-3").addClass("salir-barra-3"); 
-                //$(".puntaje-3").removeClass("enter-barra-3"); 
+                $(".puntaje-1").addClass("salir-barra-1"); 
+                $(".puntaje-1").removeClass("enter-barra-1"); 
+                $(".puntaje-2").addClass("salir-barra-2"); 
+                $(".puntaje-2").removeClass("enter-barra-2"); 
+                $(".puntaje-3").addClass("salir-barra-3"); 
+                $(".puntaje-3").removeClass("enter-barra-3"); 
             })
             .addTo(controller);  
 
