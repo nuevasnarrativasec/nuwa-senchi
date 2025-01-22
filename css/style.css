@@ -195,7 +195,7 @@ html {
         font: 22px/1.2 "Roboto", serif;
         font-weight: 700;
         margin: 0 auto;
-        max-width: 380px;
+        max-width: 420px;
         text-align: center;
         text-transform: uppercase;
     }
@@ -412,6 +412,12 @@ html {
         text-align: center;
         text-transform: uppercase;
     }
+    .main-audio h4{
+        font: 22px / 1.5 "Roboto", serif;
+        font-weight: 600;
+        text-align: center;
+    }
+
     .box-audio{
         margin: 0 auto;
         max-width: 305px;
@@ -530,7 +536,7 @@ html {
         }
       
 .main-trivia{
-    background-color: #007e85;  
+    background-color: #24292c;  
     overflow: hidden;
     position: relative;
 }
@@ -720,6 +726,16 @@ html {
                     .opcion-inactiva p{
                         /*text-decoration: line-through;*/
                     }
+            .message-box{
+                background-color: #ea9015;
+                border-radius: 10px;
+                color: #fff;
+                font: 15px / 1.5 "Roboto", serif;
+                font-weight: 600;
+                margin: 0 auto 10px;
+                max-width: 300px;
+                padding: 10px;
+            }
                 
         .box-botones{
             margin: 0 auto;
